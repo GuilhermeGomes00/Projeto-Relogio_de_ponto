@@ -7,4 +7,4 @@ Esse projeto tem o objetivo de relacionar o horário da pessoa e guardar em um b
 
 Tecnologias usadas:
 Python;
-SQL.
+SQL
