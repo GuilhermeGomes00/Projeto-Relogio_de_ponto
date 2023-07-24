@@ -1,5 +1,0 @@
-Será que eu vou conseguir colocar no {}? Não sei se os . irã atrapalhar...
-
-Eu faço com if? Se a pessoa responder o nome irá gerar todo o resto?
-
-preciso fazer uma função para Entrada e outra para o resto
