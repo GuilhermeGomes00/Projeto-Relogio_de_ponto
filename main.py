@@ -12,7 +12,7 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()  # Conexão realizada aqui
 
 # --------------------------------------------------
-# Logic
+# Logicc
 
 
 def arm():
