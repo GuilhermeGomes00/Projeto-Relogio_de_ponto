@@ -14,7 +14,7 @@ cursor = conexao.cursor()  # Conexão realizada aqui
 # --------------------------------------------------
 # Logic
 
-nome_funcionario = "Marcio"
+nome_funcionario = "Marco"
 
 entrada = datetime.datetime.now()  # entrada.strftime("%H:%M:%S")
 entrada = entrada.strftime("%Y/%m/%d")
