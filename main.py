@@ -14,22 +14,43 @@ cursor = conexao.cursor()  # Conexão realizada aqui
 # --------------------------------------------------
 # Logic
 
-nome_funcionario = "Marco"
+while True:
+    nome_funcionario = input("Qual seu nome?")
+    nome_funcionario = nome_funcionario.lower()
 
-entrada = datetime.datetime.now()  # entrada.strftime("%H:%M:%S")
-entrada = entrada.strftime("%Y/%m/%d")
+    pergunta = input(
+        f"Bom dia, {nome_funcionario}! Qual ponto deseja marcar? "
+        + "\nEntrada \nInicio do almoço \nSaida do almoço \nSaida \nNenhum \n>"
+    )
+    pergunta = pergunta.lower()
 
-command = (
-    f"INSERT INTO marca_ponto (nome, dia) VALUES ('{nome_funcionario}', '{entrada}');"
-)
+    if pergunta == "entrada":
+        dia = datetime.datetime.now()
+        dia = dia.strftime("%Y/%m/%d")
+        entrada = datetime.datetime.now()
+        entrada = entrada.strftime("%H:%M:%S")
+
+        command = (f"INSERT INTO marca_ponto (nome, dia, HoraEntrada) VALUES ('{nome_funcionario}', '{dia}', '{entrada}');")
+        cursor.execute(command)
+        conexao.commit()
+        print("Seu nome e hora de entrada foi marcado, tenha um ótimo dia!")
+        break
+
+    elif pergunta == "inicio do almoço":
+        inicio_almoco = datetime.datetime.now()
+        inicio_almoco = inicio_almoco.strftime("%H:%M:%S")
+
+        atualizar_sql = (f"UPDATE marca_ponto SET InicioAlmoco = '{inicio_almoco}' Where nome = '{nome_funcionario}'")
+        cursor.execute(atualizar_sql)
+        conexao.commit()
+        print("Inicio do almoço atualizado com sucesso! Tenha um ótimo descanso.")
+        break
 
 # --------------------------------------------------
 # Commands
 
-
-# command = f"INSERT INTO Pessoas (nome) VALUES ('{}]');"
-cursor.execute(command)
-conexao.commit()
+# cursor.execute(command)
+# conexao.commit()
 
 
 """
